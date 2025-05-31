@@ -1,0 +1,713 @@
+/* Variabel Warna Netflix */
+:root {
+  --netflix-red: #e50914;
+  --netflix-dark: #141414;
+  --netflix-light-dark: #181818;
+  --netflix-text-color: #e5e5e5;
+  --netflix-secondary-text: #a3a3a3;
+}
+
+/* Gaya Dasar */
+body {
+  margin: 0;
+  font-family: "Inter", "Roboto", sans-serif; /* Gunakan font yang di-link */
+  background-color: var(--netflix-dark);
+  color: var(--netflix-text-color);
+  line-height: 1.5;
+  overflow-x: hidden; /* Hindari scrollbar horizontal body */
+}
+
+/* Netflix Navbar Style */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3vw;
+  height: 68px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 60%, transparent 100%);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.header__left {
+  display: flex;
+  align-items: center;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+}
+
+.logo-img {
+  height: 58px;
+  width: auto;
+  display: block;
+  margin-right: 22px;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav ul li {
+  margin-right: 22px;
+}
+
+.nav-link {
+  color: #e5e5e5;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.2s;
+  padding: 2px 0;
+  position: relative;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  color: #fff;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  margin-right: 22px;
+  opacity: 0.8;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.search-icon {
+  background-image: url("https://img.icons8.com/ios-filled/50/ffffff/search--v1.png");
+}
+
+.bell-icon {
+  background-image: url("https://img.icons8.com/ios-filled/50/ffffff/appointment-reminders--v1.png");
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.profile__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px; /* Sudut sedikit membulat, bukan bulat penuh */
+  object-fit: cover;
+  margin-right: 7px; /* Jarak ke arrow, jangan terlalu jauh */
+  border: 2px solid transparent;
+  background: #222;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18); /* Opsional, biar lebih nyata */
+}
+
+.arrow-down {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #fff;
+  margin-top: 2px;
+  margin-right: 70px;
+}
+
+/* Bagian Hero */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 95vh; /* Lebih tinggi, hampir penuh layar */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 80px; /* Lebih lebar dari sebelumnya */
+  padding-right: 80px;
+}
+
+.hero__background,
+.hero__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Pastikan video/gambar mengisi area */
+  z-index: 1; /* Di belakang konten */
+}
+
+.hero__background {
+  background-size: cover;
+  background-position: center;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2; /* Di atas background */
+  max-width: 600px; /* Lebar maksimum konten teks */
+  color: #fff; /* Teks di hero biasanya putih */
+}
+
+.hero__title {
+  font-size: 3rem; /* Ukuran judul hero */
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Bayangan teks agar terlihat */
+}
+
+.hero__description {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.hero__buttons .button {
+  padding: 10px 25px;
+  margin-right: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.button--play {
+  background-color: #fff; /* Tombol Play putih */
+  color: var(--netflix-dark);
+}
+
+.button--info {
+  background-color: rgba(
+    109,
+    109,
+    110,
+    0.7
+  ); /* Tombol Info abu-abu transparan */
+  color: #fff;
+}
+
+.button i {
+  margin-right: 5px;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+.hero__fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px; /* Tinggi gradasi */
+  background: linear-gradient(
+    to top,
+    var(--netflix-dark),
+    rgba(20, 20, 20, 0)
+  ); /* Gradasi ke warna latar belakang */
+  z-index: 2;
+}
+
+/* Netflix Hero Style */
+.netflix-hero {
+  position: relative;
+  min-height: 95vh; /* Lebih tinggi dari sebelumnya */
+  color: #fff;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 5rem;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Lebih terang: opacity lebih kecil */
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.65) 10%,
+    /* dari 0.6 jadi 0.25 */ rgba(0, 0, 0, 0.4) 100% /* dari 0.95 jadi 0.55 */
+  );
+  z-index: 2;
+}
+.netflix-hero-content {
+  position: relative;
+  z-index: 3;
+  margin-left: 4vw;
+  max-width: 900px; /* Lebar maksimum konten lebih besar */
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.netflix-logo {
+  width: 100px;
+  margin-bottom: 1rem;
+}
+.netflix-series-label {
+  display: flex;
+  align-items: flex-end; /* SERIES sedikit lebih ke bawah dari logo N */
+  margin-bottom: 0.7rem;
+}
+.netflix-n-logo {
+  height: 32px; /* Ukuran logo N, bisa disesuaikan */
+  width: auto;
+  margin-right: 7px; /* Jarak ke tulisan SERIES */
+  display: inline-block;
+  vertical-align: middle;
+}
+.series-text {
+  color: #fff;
+  font-size: 1rem; /* Lebih kecil, mirip Netflix */
+  font-weight: 600;
+  letter-spacing: 0.39em; /* Jarak antar huruf lebih renggang */
+  margin-bottom: 4px; /* SERIES sedikit turun */
+  margin-left: 4px; /* Jarak ke logo N */
+  font-family: "Inter", "Roboto", Arial, sans-serif;
+  opacity: 0.85;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+.netflix-title {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  margin-top: 0.1rem;
+}
+.netflix-title-decor {
+  text-align: left;
+  color: #fff;
+  opacity: 0.92;
+  font-size: 1.7rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+.netflix-desc {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+.netflix-hero-buttons .button {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.7rem 2.2rem;
+  border-radius: 4px;
+  border: none;
+  margin-right: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.button--play {
+  background: #fff;
+  color: #000;
+}
+.button--play:hover {
+  background: #e6e6e6;
+}
+.button--list {
+  background: rgba(109, 109, 110, 0.7);
+  color: #fff;
+}
+.button--list:hover {
+  background: #333;
+}
+
+/* Konten Utama (di bawah hero) */
+.main-content {
+  position: relative; /* Penting agar z-index bekerja terhadap hero */
+  z-index: 3; /* Konten utama di atas hero fade */
+  padding: 40px 50px 20px 50px; /* Tambah padding atas */
+  margin-top: -80px; /* Sedikit lebih kecil agar tidak terlalu menumpuk hero */
+}
+
+/* Baris Konten (untuk foto/video) */
+.content-row {
+  margin-bottom: 60px; /* Lebih besar agar antar baris tidak terlalu rapat */
+}
+
+.content-row h2 {
+  color: var(--netflix-text-color);
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  padding-left: 0; /* Hapus padding kiri dari gaya sebelumnya */
+  border-left: none; /* Hapus border kiri dari gaya sebelumnya */
+}
+
+.row-title {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 4rem 0 1.2rem 2vw; /* Tambah margin atas dan bawah */
+}
+
+/* --- Netflix Style Title Cards --- */
+.row__posters {
+  display: flex;
+  gap: 18px;
+}
+
+.row__poster {
+  position: relative;
+  width: 180px; /* dari 120px jadi 180px */
+  height: 270px; /* dari 180px jadi 270px */
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  background: #222;
+  transition: transform 0.2s;
+}
+
+.row__poster-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.row__poster-title-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 8px 6px 8px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.85) 80%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  color: #fff;
+  font-size: 0rem;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  box-sizing: border-box;
+  text-align: left;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  pointer-events: none;
+}
+
+.row__poster-title-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(20, 20, 20, 0.65) 80%,
+    rgba(20, 20, 20, 0.1) 100%
+  );
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.7em 0.5em 0.5em 0.5em;
+  text-align: center;
+  border-radius: 0 0 6px 6px;
+  z-index: 3;
+  pointer-events: none;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.row__poster:hover,
+.row__poster:focus-within {
+  transform: scale(1.15) translateY(-18px);
+  z-index: 2;
+}
+
+.row__poster:hover .row__poster-img,
+.row__poster:focus-within .row__poster-img {
+  box-shadow: 0 16px 40px 0 rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.row__poster:hover .row__poster-title,
+.row__poster:focus-within .row__poster-title {
+  opacity: 1;
+}
+
+/* Scrollbar mirip Netflix */
+.row__posters::-webkit-scrollbar {
+  height: 8px;
+  background: #181818;
+}
+.row__posters::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    padding: 10px 10px;
+    height: 52px;
+  }
+  .logo-img {
+    height: 32px;
+    margin-right: 10px;
+  }
+  .header__right .icon,
+  .header__right .profile__avatar {
+    margin-right: 10px;
+    width: 22px;
+    height: 22px;
+  }
+  .arrow-down {
+    margin-right: 10px;
+  }
+  .hero,
+  .netflix-hero {
+    padding: 0 8px;
+    height: 48vh;
+    min-height: 320px;
+  }
+  .netflix-hero-content {
+    margin-left: 0;
+    padding: 1rem 0.5rem;
+    max-width: 100vw;
+  }
+  .netflix-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .netflix-title-decor {
+    font-size: 1.1rem;
+  }
+  .netflix-desc {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .netflix-hero-buttons .button {
+    font-size: 0.95rem;
+    padding: 0.5rem 1.2rem;
+    margin-right: 0.5rem;
+  }
+  .content-row {
+    margin-bottom: 24px;
+  }
+  .row-title {
+    font-size: 1.05rem;
+    margin: 2rem 0 0.7rem 1vw;
+  }
+  .row__posters {
+    gap: 10px;
+    padding-bottom: 0.5rem;
+  }
+  .row__poster {
+    width: 110px;
+    height: 160px;
+    min-width: 110px;
+    max-width: 120px;
+    flex: 0 0 110px;
+  }
+  .row__poster-img {
+    height: 160px;
+  }
+  .row__poster-title-bottom {
+    font-size: 0.75rem;
+    padding: 0.5em 0.3em 0.3em 0.3em;
+  }
+  .main-content {
+    padding: 10px 2vw 10px 2vw;
+    margin-top: -30px;
+  }
+  .footer {
+    font-size: 0.8rem;
+    padding: 20px 5px;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav ul li {
+    margin-right: 12px;
+  }
+  .logo-img {
+    height: 28px;
+    margin-right: 15px;
+  }
+  .profile__avatar {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 6px 2vw 2px 2vw;
+    height: auto;
+    min-height: 44px;
+  }
+  .header__left {
+    width: 100%;
+    justify-content: flex-start;
+    margin-bottom: 2px;
+  }
+  .logo-img {
+    height: 20px;
+    margin-right: 6px;
+  }
+  .nav ul {
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 0;
+    margin: 0;
+  }
+  .nav ul li {
+    margin-right: 6px;
+    margin-bottom: 2px;
+  }
+  .nav-link {
+    font-size: 0.88rem;
+    padding: 2px 0;
+  }
+  .header__right {
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 2px;
+  }
+  .header__right .icon,
+  .header__right .profile__avatar {
+    margin-right: 4px;
+    width: 18px;
+    height: 18px;
+  }
+  .arrow-down {
+    margin-right: 2px;
+  }
+
+  .hero,
+  .hero-section,
+  .netflix-hero {
+    padding: 0 2vw;
+    min-height: 38vh;
+    height: 48vh;
+    padding-bottom: 1.2rem;
+  }
+  .netflix-hero-content {
+    margin-left: 0;
+    padding: 0.7rem 0.2rem;
+    max-width: 100vw;
+  }
+  .netflix-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+  }
+  .netflix-title-decor {
+    font-size: 0.8rem;
+  }
+  .netflix-desc {
+    font-size: 0.85rem;
+    margin-bottom: 0.7rem;
+  }
+  .netflix-hero-buttons .button {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.7rem;
+    margin-right: 0.3rem;
+  }
+  .content-row {
+    margin-bottom: 14px;
+  }
+  .row-title {
+    font-size: 0.9rem;
+    margin: 1.2rem 0 0.5rem 1vw;
+  }
+  .row__posters {
+    gap: 6px;
+    padding-bottom: 0.2rem;
+    overflow-x: auto;
+  }
+  .row__poster {
+    width: 70px;
+    height: 100px;
+    min-width: 70px;
+    max-width: 80px;
+    flex: 0 0 70px;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.13);
+  }
+  .row__poster-img {
+    height: 100px;
+    border-radius: 4px;
+  }
+  .row__poster-title-bottom {
+    font-size: 0.55rem;
+    padding: 0.3em 0.1em 0.2em 0.1em;
+    border-radius: 0 0 4px 4px;
+  }
+  .main-content {
+    padding: 4px 1vw 4px 1vw;
+    margin-top: -18px;
+  }
+  .footer {
+    font-size: 0.7rem;
+    padding: 10px 2px;
+  }
+  /* Hilangkan efek zoom card di mobile */
+  .row__poster:hover,
+  .row__poster:focus-within {
+    transform: none !important;
+    z-index: 1;
+  }
+  .row__poster:hover .row__poster-img,
+  .row__poster:focus-within .row__poster-img {
+    box-shadow: none !important;
+  }
+}
+
+/* Footer */
+.footer {
+  width: 100vw;
+  text-align: center;
+  position: relative;
+  left: 0;
+  bottom: 0;
+  margin: 0 auto;
+  background: #181818;
+  color: #a3a3a3;
+  padding: 24px 0 18px 0;
+  font-size: 1rem;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+/* Agar footer tetap di bawah jika konten sedikit */
+body,
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.main-content {
+  flex: 1 0 auto;
+}
+.footer {
+  flex-shrink: 0;
+}
