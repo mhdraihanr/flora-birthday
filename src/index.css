@@ -372,6 +372,12 @@ body {
 .row__posters {
   display: flex;
   gap: 18px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  flex-wrap: nowrap;
+  padding-left: 32px;
+  padding-right: 32px;
+  scroll-snap-type: x mandatory;
 }
 
 .row__poster {
@@ -383,12 +389,15 @@ body {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   background: #222;
   transition: transform 0.2s;
+  position: relative;
+  scroll-snap-align: start;
 }
 
 .row__poster-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 6px;
   display: block;
 }
 
@@ -426,14 +435,16 @@ body {
     rgba(20, 20, 20, 0.1) 100%
   );
   color: #fff;
-  font-size: 0.9rem;
   font-weight: 600;
-  padding: 0.7em 0.5em 0.5em 0.5em;
   text-align: center;
   border-radius: 0 0 6px 6px;
   z-index: 3;
   pointer-events: none;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  line-height: 1.2;
+  font-size: clamp(0.7rem, 1.2vw, 1.05rem);
+  padding: 0.5em 0.2em 0.3em 0.2em;
+  display: block;
 }
 
 .row__poster:hover,
@@ -680,6 +691,50 @@ body {
   .row__poster:focus-within .row__poster-img {
     box-shadow: none !important;
   }
+  .row__posters {
+    gap: 8px;
+    padding-bottom: 0.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+  }
+  .row__poster {
+    width: 38vw;
+    height: 56vw;
+    min-width: 38vw;
+    max-width: 42vw;
+    flex: 0 0 38vw;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.13);
+    margin-bottom: 0;
+    background: #222;
+    position: relative;
+  }
+  .row__poster-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+  }
+  .row__poster-title-bottom {
+    font-size: 0.7rem;
+    padding: 0.35em 0.2em 0.2em 0.2em;
+    border-radius: 0 0 6px 6px;
+    background: linear-gradient(
+      0deg,
+      rgba(20, 20, 20, 0.65) 80%,
+      rgba(20, 20, 20, 0.1) 100%
+    );
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: #fff;
+    text-align: center;
+    z-index: 2;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  }
 }
 
 /* Footer */
@@ -710,4 +765,130 @@ body,
 }
 .footer {
   flex-shrink: 0;
+}
+
+/* --- TitleCards Responsive Clean --- */
+
+/* Default (Desktop) */
+.row__posters {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  flex-wrap: nowrap;
+  padding-left: 32px;
+  padding-right: 32px;
+  scroll-snap-type: x mandatory;
+}
+.row__poster {
+  position: relative;
+  width: 180px;
+  height: 270px;
+  min-width: 180px;
+  max-width: 200px;
+  flex: 0 0 180px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  background: #222;
+  transition: transform 0.2s;
+  scroll-snap-align: start;
+}
+.row__poster-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+.row__poster-title-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(20, 20, 20, 0.65) 80%,
+    rgba(20, 20, 20, 0.1) 100%
+  );
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 0 0 6px 6px;
+  z-index: 3;
+  pointer-events: none;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  line-height: 1.2;
+  font-size: clamp(0.7rem, 1.2vw, 1.05rem);
+  padding: 0.5em 0.2em 0.3em 0.2em;
+  display: block;
+}
+
+/* Tablet landscape (iPad Pro, dst) */
+@media (max-width: 1100px) {
+  .row__poster {
+    width: 120px;
+    height: 180px;
+    min-width: 120px;
+    max-width: 130px;
+    flex: 0 0 120px;
+  }
+  .row__poster-img {
+    height: 180px;
+  }
+}
+
+/* Tablet portrait (iPad, dst) */
+@media (max-width: 900px) {
+  .row__poster {
+    width: 90px;
+    height: 135px;
+    min-width: 90px;
+    max-width: 100px;
+    flex: 0 0 90px;
+  }
+  .row__poster-img {
+    height: 135px;
+  }
+}
+
+/* Mobile besar (phablet, iPhone Plus, dst) */
+@media (max-width: 700px) {
+  .row__poster {
+    width: 28vw;
+    height: 42vw;
+    min-width: 28vw;
+    max-width: 32vw;
+    flex: 0 0 28vw;
+  }
+  .row__poster-img {
+    height: 42vw;
+  }
+  .row__posters {
+    padding-left: 8px;
+    padding-right: 8px;
+    gap: 8px;
+  }
+  .row__poster-title-bottom {
+    font-size: 0.8rem;
+    padding: 0.35em 0.2em 0.2em 0.2em;
+  }
+}
+
+/* Mobile kecil */
+@media (max-width: 500px) {
+  .row__poster {
+    width: 38vw;
+    height: 56vw;
+    min-width: 38vw;
+    max-width: 42vw;
+    flex: 0 0 38vw;
+  }
+  .row__poster-img {
+    height: 56vw;
+  }
+  .row__poster-title-bottom {
+    font-size: 0.7rem;
+    padding: 0.3em 0.1em 0.15em 0.1em;
+  }
 }
