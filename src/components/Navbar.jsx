@@ -1,14 +1,12 @@
 import AudioPlayer from "./Audio";
+import netflixLogo from "../assets/netflix-logo.png";
+import netflixProfile from "../assets/netflix-profile.png";
 
 export default function Navbar() {
   return (
     <header className="header">
       <div className="header__left">
-        <img
-          src="src/assets/netflix-logo.png"
-          alt="Netflix"
-          className="logo-img"
-        />
+        <img src={netflixLogo} alt="Netflix" className="logo-img" />
         <nav className="nav">
           <ul>
             <li>
@@ -44,11 +42,7 @@ export default function Navbar() {
         <AudioPlayer />
         <i className="icon bell-icon"></i>
         <div className="profile">
-          <img
-            src="src/assets/netflix-profile.png"
-            alt="Profile"
-            className="profile__avatar"
-          />
+          <img src={netflixProfile} alt="Profile" className="profile__avatar" />
           <span className="arrow-down"></span>
         </div>
       </div>

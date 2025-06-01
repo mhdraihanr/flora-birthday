@@ -1,31 +1,39 @@
+import image1 from "../assets/image1.jpg";
+import image2 from "../assets/image2.jpg";
+import image3 from "../assets/image3.jpg";
+import image4 from "../assets/image4.jpg";
+import image5 from "../assets/image5.jpg";
+import image6 from "../assets/image6.jpg";
+import image7 from "../assets/image7.jpg";
+
 const data = [
   {
     title: "A Love to Remember",
-    img: "src/assets/image1.jpg",
+    img: image1,
   },
   {
     title: "About Time",
-    img: "src/assets/image2.jpg",
+    img: image2,
   },
   {
     title: "Moments With You",
-    img: "src/assets/image3.jpg",
+    img: image3,
   },
   {
     title: "Endless Affection",
-    img: "src/assets/image4.jpg",
+    img: image4,
   },
   {
     title: "Growing Together",
-    img: "src/assets/image5.jpg",
+    img: image5,
   },
   {
     title: "Stranger to Soulmate",
-    img: "src/assets/image6.jpg",
+    img: image6,
   },
   {
     title: "Love in the Air",
-    img: "src/assets/image7.jpg",
+    img: image7,
   },
 ];
 

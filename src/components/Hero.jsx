@@ -1,5 +1,7 @@
 import AudioPlayer from "./Audio";
 import TVShow from "./TVShow";
+import heroBg from "../assets/video1.mp4";
+import netflixMiniLogo from "../assets/netflix-mini-logo.png";
 
 export default function Hero() {
   return (
@@ -7,7 +9,7 @@ export default function Hero() {
       <AudioPlayer />
       <video
         className="hero-bg"
-        src="/src/assets/video1.mp4"
+        src={heroBg}
         autoPlay
         loop
         muted
@@ -23,11 +25,7 @@ export default function Hero() {
       <div className="hero-overlay" />
       <div className="hero-content netflix-hero-content">
         <div className="netflix-series-label">
-          <img
-            src="src/assets/netflix-mini-logo.png"
-            alt="N"
-            className="netflix-n-logo"
-          />
+          <img src={netflixMiniLogo} alt="N" className="netflix-n-logo" />
           <span className="series-text">SERIES</span>
         </div>
         <h1 className="netflix-title">Happy Birthday, Love</h1>
